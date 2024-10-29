@@ -88,9 +88,9 @@
 }
 
 .section2 {
-  height: 100vh;
+  height: 60vh;
   position: relative;
-  justify-content: center;
+  justify-content: start;
 }
 
 .mapContainer {
@@ -101,8 +101,8 @@
 }
 
 .section3 {
-  height: 100vh;
-  justify-content: center;
+  height: 80vh;
+  justify-content: start;
   overflow: hidden;
 }
 
@@ -193,7 +193,7 @@
 
 
 .moreButton {
-  padding: 12px 25px;
+  padding: 10px 23px;
   background: linear-gradient(0deg, #8000ff, #8c1282);
   border-radius: 12px;
   font-weight: 500;
@@ -231,3 +231,10 @@
     right: 6%;
   }
 }
+
+@media screen and (max-height: 700px){
+  .section3{
+    height: 90vh;
+  }
+}
+

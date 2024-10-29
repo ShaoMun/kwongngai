@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 let guestList = [
     "狮总", "艺峰", "群乐", "南北龙狮总会", "周国庆先生", "李小萍", "仁哥", "威少", 
@@ -176,7 +177,7 @@ const Seatings = () => {
   const Seat = ({ number }) => (
     <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 
       ${shouldHighlightSeat(number)
-        ? 'border-green-500 bg-green-100'
+        ? 'border-green-500 bg-lime-300 text-black'
         : 'border-gray-300'} 
       flex items-center justify-center text-xs sm:text-sm cursor-pointer hover:bg-blue-100 transition-colors relative`}>
       {number}
@@ -194,7 +195,7 @@ const Seatings = () => {
           <input
             type="text"
             className="w-full p-2 border-2 border-gray-300 rounded-md mb-2 text-black"
-            placeholder="Search guest..."
+            placeholder="搜索..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -231,7 +232,7 @@ const Seatings = () => {
       {/* Stage */}
       <div className="w-full text-center mb-4 sm:mb-8">
         <div className="border-2 border-gray-300 p-2 sm:p-4 text-base sm:text-lg font-bold bg-gray-50 text-black">
-          STAGE
+          舞台
         </div>
       </div>
 
@@ -316,6 +317,7 @@ const Seatings = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </div>
     
   );

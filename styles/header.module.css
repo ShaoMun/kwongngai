@@ -1,17 +1,21 @@
-/* styles/header.module.css */
 .headerContainer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 15px;
     font-weight: 400;
     background-color: black;
     color: white;
-    margin: 0 6px;
+    margin: 18px 9px;
+    margin-bottom: 0;
 }
 
-.headerContainer a{
+.headerContainer a {
     text-decoration: none;
     color: white;
+    transition: color 0.3s;
 }
-  
+
+.active {
+    color: rgb(191, 136, 255) !important;
+}

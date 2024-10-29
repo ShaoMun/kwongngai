@@ -1,0 +1,26 @@
+.footerContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.col1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: rgb(20, 20, 20);
+    padding: 6px 0;
+    margin-top: 5%;
+}
+
+.col1 img{
+    opacity: 0.6;
+}
+
+.col2{
+    align-self: center;
+    font-size: xx-small;
+    opacity: 0.5;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
