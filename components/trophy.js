@@ -69,14 +69,14 @@ const Trophy = () => {
 
       // Stem
       const stemGeometry = new THREE.CylinderGeometry(0.2, 0.4, 2, 32);
-      const stemMaterial = new THREE.MeshStandardMaterial({ color: 0xFFFF00, metalness: 0.6, roughness: 0.05 });
+      const stemMaterial = new THREE.MeshStandardMaterial({ color: 0xFFFF00, metalness: 0.3, roughness: 0.05 });
       const stem = new THREE.Mesh(stemGeometry, stemMaterial);
       stem.position.y = 1.5;
       group.add(stem);
 
       // Inverted bowl
       const invertedBowlGeometry = new THREE.SphereGeometry(1.5, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2);
-      const invertedBowlMaterial = new THREE.MeshStandardMaterial({ color: 0xFFFF00, metalness: 0.6, roughness: 0.05, side: THREE.DoubleSide });
+      const invertedBowlMaterial = new THREE.MeshStandardMaterial({ color: 0xFFFF00, metalness: 0.3, roughness: 0.05, side: THREE.DoubleSide });
       const invertedBowl = new THREE.Mesh(invertedBowlGeometry, invertedBowlMaterial);
       invertedBowl.rotation.x = Math.PI;
       invertedBowl.scale.y = 1.4;
@@ -85,7 +85,7 @@ const Trophy = () => {
 
       // Handles
       const handleGeometry = new THREE.TorusGeometry(0.7, 0.11, 16, 32, Math.PI);
-      const handleMaterial = new THREE.MeshStandardMaterial({ color: 0xFFFF00, metalness: 0.6, roughness: 0.05 });
+      const handleMaterial = new THREE.MeshStandardMaterial({ color: 0xFFFF00, metalness: 0.3, roughness: 0.05 });
 
       const leftHandle = new THREE.Mesh(handleGeometry, handleMaterial);
       leftHandle.position.set(-1, 2.7, 0);
@@ -162,7 +162,7 @@ const Trophy = () => {
       ref={mountRef}
       style={{
         position: 'fixed',
-        top: '0',
+        top: '10%',
         left: '0',
         width: '100%',
         height: '100%',
