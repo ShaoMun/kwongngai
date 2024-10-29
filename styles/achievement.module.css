@@ -36,7 +36,8 @@
   
   .leftCol h1,
 .rightCol h1 {
-  font-size: xxx-large;
+  font-size: 50px;
+  font-weight: bolder;
   background: radial-gradient(circle, #8000ff, #ffcc00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
