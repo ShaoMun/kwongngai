@@ -140,7 +140,6 @@ const initialSeatAssignments = {
   };
 
 const Seatings = () => {
-  const [seatAssignments, setSeatAssignments] = useState(initialSeatAssignments);
   const [selectedGuest, setSelectedGuest] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredGuests, setFilteredGuests] = useState(guestList);

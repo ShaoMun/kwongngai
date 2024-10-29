@@ -3,13 +3,15 @@ import AnimatedBackground from './animatedBackground';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 const LandingPage = () => {
+  const router = useRouter();
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false); // New state to manage animation
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const thumbnails = [
     { src: "/thumbnail1.jpeg", description: "第十二届云顶世界狮王争霸战 2016", link: "https://www.youtube.com/watch?v=QPMZQj9LnOc" },
@@ -19,7 +21,6 @@ const LandingPage = () => {
     { src: "/thumbnail5.jpeg", description: "2014年美高梅狮王争霸-澳门国际邀请赛", link: "https://www.youtube.com/watch?v=yU8oR-WM66w" }
   ];
 
-  // Scroll-trigger logic for sections
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,24 +45,22 @@ const LandingPage = () => {
   }, []);
 
   const handlePrevious = () => {
-    if (isAnimating) return; // Prevent further clicks during animation
+    if (isAnimating) return;
     setIsAnimating(true);
 
     setActiveSlide((prev) => (prev === 0 ? thumbnails.length - 1 : prev - 1));
 
-    // Wait for animation to complete before allowing further clicks
     setTimeout(() => {
       setIsAnimating(false);
     }, 500);
   };
 
   const handleNext = () => {
-    if (isAnimating) return; // Prevent further clicks during animation
+    if (isAnimating) return;
     setIsAnimating(true);
 
     setActiveSlide((prev) => (prev === thumbnails.length - 1 ? 0 : prev + 1));
 
-    // Wait for animation to complete before allowing further clicks
     setTimeout(() => {
       setIsAnimating(false);
     }, 500);
@@ -84,7 +83,6 @@ const LandingPage = () => {
 
   return (
     <div className={styles.landingContainer}>
-      {/* Section 1 with Scroll Trigger */}
       <div ref={section1Ref} className={`${styles.section1} section`}>
         <AnimatedBackground />
         <div>
@@ -102,7 +100,6 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Section 2 with Scroll Trigger */}
       <div ref={section2Ref} className={`${styles.section2} section`}>
         <AnimatedBackground />
         <div>
@@ -124,7 +121,6 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Section 3 with Scroll Trigger and Enhanced Slider */}
       <div ref={section3Ref} className={`${styles.section3} section`}>
         <AnimatedBackground />
         <div>
@@ -148,12 +144,21 @@ const LandingPage = () => {
                   '--position': position,
                 }}
               >
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <Image src={src} width={200} height={200} alt={`Thumbnail ${index + 1}`} />
-                  {position === 0 && (
-                    <p className={styles.description}>{description}</p>
-                  )}
-                </a>
+                {link ? (
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    <Image src={src} width={200} height={200} alt={`Thumbnail ${index + 1}`} />
+                    {position === 0 && (
+                      <p className={styles.description}>{description}</p>
+                    )}
+                  </a>
+                ) : (
+                  <>
+                    <Image src={src} width={200} height={200} alt={`Thumbnail ${index + 1}`} />
+                    {position === 0 && (
+                      <p className={styles.description}>{description}</p>
+                    )}
+                  </>
+                )}
               </div>
             ))}
           </div>
@@ -171,9 +176,12 @@ const LandingPage = () => {
             通过一次次的比赛，我们不仅展示了精湛的舞狮技艺，也赢得了各地观众的赞誉与尊重。</p>
         </div>
         <div>
-          <a className={styles.moreButton} href='/achievement'>
+          <button
+            className={styles.moreButton}
+            onClick={() => router.push('/achievement')}
+          >
             了解更多
-          </a>
+          </button>
         </div>
       </div>
     </div>

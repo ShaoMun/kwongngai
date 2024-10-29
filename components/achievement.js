@@ -9,7 +9,7 @@ const Achievement = () => {
   const [achievementsData, setAchievementsData] = useState(null);
   const containerRef = useRef(null);
   const [showTopButton, setShowTopButton] = useState(false);
-  let lastVisible = null;
+  const lastVisible = useRef(null);
 
   // Dynamically load the JSON data on the client side
   useEffect(() => {
@@ -27,11 +27,11 @@ const Achievement = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (lastVisible && lastVisible !== entry.target) {
-              lastVisible.classList.remove(styles.visible);
-            }
-            entry.target.classList.add(styles.visible);
-            lastVisible = entry.target;
+            if (lastVisible.current && lastVisible.current !== entry.target) {
+                lastVisible.current.classList.remove(styles.visible);
+              }
+              entry.target.classList.add(styles.visible);
+              lastVisible.current = entry.target;
           }
         });
       },

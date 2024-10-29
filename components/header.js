@@ -15,47 +15,27 @@ const Header = () => {
   // Function to check if the link is active
   const isActiveLink = (path) => currentPath === path;
 
+  // Function to handle routing
+  const navigateTo = (path) => {
+    router.push(path);
+  };
+
   return (
     <div className={styles.headerContainer}>
-      <div>
-        <a 
-          href='/' 
-          className={isActiveLink('/') ? styles.active : ''}
-        >
-          <Image src="/KWONGNGAI.png" width={50} height={50} alt="Logo" />
-        </a>
+      <div onClick={() => navigateTo('/')} className={isActiveLink('/') ? styles.active : ''}>
+        <Image src="/KWONGNGAI.png" width={50} height={50} alt="Logo" />
       </div>
-      <div>
-        <a 
-          href='/' 
-          className={isActiveLink('/') ? styles.active : ''}
-        >
-          主页
-        </a>
+      <div onClick={() => navigateTo('/')} className={isActiveLink('/') ? styles.active : ''}>
+        主页
       </div>
-      <div>
-        <a 
-          href='/table' 
-          className={isActiveLink('/table') ? styles.active : ''}
-        >
-          桌位查询
-        </a>
+      <div onClick={() => navigateTo('/table')} className={isActiveLink('/table') ? styles.active : ''}>
+        桌位查询
       </div>
-      <div>
-        <a 
-          href='/schedule' 
-          className={isActiveLink('/schedule') ? styles.active : ''}
-        >
-          节目流程
-        </a>
+      <div onClick={() => navigateTo('/schedule')} className={isActiveLink('/schedule') ? styles.active : ''}>
+        节目流程
       </div>
-      <div>
-        <a 
-          href='/achievement' 
-          className={isActiveLink('/achievement') ? styles.active : ''}
-        >
-          荣誉榜
-        </a>
+      <div onClick={() => navigateTo('/achievement')} className={isActiveLink('/achievement') ? styles.active : ''}>
+        荣誉榜
       </div>
     </div>
   );
