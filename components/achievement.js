@@ -96,6 +96,7 @@ const Achievement = () => {
           src={'/arrow-up.png'}
           width={33}
           height={29}
+          alt='arrow-top'
           />
         </button>
       )}

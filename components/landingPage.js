@@ -33,14 +33,19 @@ const LandingPage = () => {
       { threshold: 0.3 }
     );
 
-    if (section1Ref.current) observer.observe(section1Ref.current);
-    if (section2Ref.current) observer.observe(section2Ref.current);
-    if (section3Ref.current) observer.observe(section3Ref.current);
+    // Copy ref values to local variables
+    const section1El = section1Ref.current;
+    const section2El = section2Ref.current;
+    const section3El = section3Ref.current;
+
+    if (section1El) observer.observe(section1El);
+    if (section2El) observer.observe(section2El);
+    if (section3El) observer.observe(section3El);
 
     return () => {
-      if (section1Ref.current) observer.unobserve(section1Ref.current);
-      if (section2Ref.current) observer.unobserve(section2Ref.current);
-      if (section3Ref.current) observer.unobserve(section3Ref.current);
+      if (section1El) observer.unobserve(section1El);
+      if (section2El) observer.unobserve(section2El);
+      if (section3El) observer.unobserve(section3El);
     };
   }, []);
 
