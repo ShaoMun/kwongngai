@@ -2,6 +2,29 @@
     padding: 10px;
   }
   
+  .achievementTitle{
+    height: 100vh;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 27px;
+    background: radial-gradient(circle, #8000ff, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: radialPurpleGoldAnimation 1.5s infinite;
+    background-size: 400% 400%;
+  }
+
+  .achievementTitle span{
+    font-size: 50px;
+    background-color: gold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: radialPurpleGoldAnimation 1.5s infinite;
+    background-size: 400% 400%;
+    color: gold;
+    font-weight: bold;
+  }
+
   .leftCol,
   .rightCol {
     width: 88%;

@@ -71,7 +71,7 @@ const Achievement = () => {
     <div className={styles.container} ref={containerRef}>
       {/* Trophy Component */}
       <Trophy />
-
+        <div className={styles.achievementTitle}>馬來西亞光藝龍獅體育會<br/><span>荣誉榜</span></div>
       {/* Achievement List */}
       <div className={styles.achievementsList}>
         {achievementsData.map((achievement, index) => (

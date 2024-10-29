@@ -11,8 +11,8 @@ const Header = () => {
       <div>
         <a href='/'>主页</a>
       </div>
-      <div href='/table'>
-        <a>桌位查询</a>
+      <div>
+        <a href='/table'>桌位查询</a>
       </div>
       <div href=''>
         <a>节目流程</a>
