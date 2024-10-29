@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from "../styles/header.module.css"; // Importing as a CSS module
+import styles from "../styles/header.module.css"; 
 
 const Header = () => {
   return (
@@ -14,8 +14,8 @@ const Header = () => {
       <div>
         <a href='/table'>桌位查询</a>
       </div>
-      <div href=''>
-        <a>节目流程</a>
+      <div>
+        <a href='/schedule'>节目流程</a>
       </div>
       <div>
         <a href='/achievement'>荣誉榜</a>
