@@ -1,0 +1,233 @@
+.landingContainer {
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+.section1,
+.section2,
+.section3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Moves down */
+  transition: opacity 0.8s, transform 0.8s; /* Smooth transition */
+}
+
+.section1.visible,
+.section2.visible,
+.section3.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Moves to the original position */
+}
+
+.section1 h1 {
+  text-align: center;
+  font-size: x-large;
+  margin: 20px 0;
+}
+
+.section2 h2,
+.section3 h2 {
+  font-size: 21px;
+  background: radial-gradient(circle, #8000ff, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: radialPurpleGoldAnimation 1.5s infinite;
+  background-size: 250% 250%;
+}
+
+/* Radial gradient animation */
+@keyframes radialPurpleGoldAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.section2 p,
+.section3 p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.section1 {
+  height: 100vh;
+  justify-content: center;
+  padding: 0;
+}
+
+.section1 img {
+  margin-top: 20%;
+  margin-bottom: 10%;
+  max-width: 100%;
+  animation: rotateImage 1s linear; /* Rotating animation */
+}
+
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+    scale: 0.3;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.section1 span {
+  color: gold;
+  font-size: larger;
+}
+
+.section2 {
+  height: 100vh;
+  position: relative;
+  justify-content: center;
+}
+
+.mapContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section3 {
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sliderContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.sec3Text {
+  margin-top: 40px;
+  margin-bottom: 42px;
+}
+
+.imageWrapper {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  transition: all 0.5s ease;
+  transform: translateX(calc(var(--position) * 220px)) scale(0.8);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.imageWrapper.active {
+  transform: translateX(0) scale(1.2);
+  opacity: 1;
+  z-index: 2;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.sliderButton {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.sliderButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1); /* Scaling on hover */
+}
+
+.prevButton {
+  left: 20%;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.prevButton:hover {
+  transform: translateX(-10%); /* Moves left on hover */
+}
+
+.nextButton {
+  right: 20%;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.nextButton:hover {
+  transform: translateX(10%); /* Moves right on hover */
+}
+
+
+
+.moreButton {
+  padding: 12px 25px;
+  background: linear-gradient(0deg, #8000ff, #8c1282);
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+
+.moreButton:hover {
+  transform: scale(1.05);
+}
+
+.description {
+  margin-top: 10px;
+  font-size: x-small !important;
+  color: rgba(255, 255, 255, 0.516);
+  text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+  .imageWrapper {
+    width: 200px;
+    height: 200px;
+    transform: translateX(calc(var(--position) * 170px)) scale(0.8);
+  }
+
+  .prevButton {
+    left: 6%;
+  }
+
+  .nextButton {
+    right: 6%;
+  }
+}

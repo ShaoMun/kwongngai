@@ -1,0 +1,99 @@
+.container {
+    padding: 10px;
+  }
+  
+  .leftCol,
+  .rightCol {
+    width: 88%;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .leftCol h1,
+.rightCol h1 {
+  font-size: xxx-large;
+  background: radial-gradient(circle, #8000ff, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: radialPurpleGoldAnimation 1.5s infinite;
+  background-size: 400% 400%;
+}
+
+/* Radial gradient animation */
+@keyframes radialPurpleGoldAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+
+
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .leftCol {
+    text-align: left;
+  }
+  
+  .rightCol {
+    text-align: left;
+    margin-left: auto;
+  }
+  
+  .rightCol h1 {
+    text-align: right;
+  }
+  
+  .rightCol ul,
+  .leftCol ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .rightCol li,
+  .leftCol li {
+    font-size: small;
+    line-height: 1.3;
+  }
+  
+
+  .topButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 5px 5px;
+    font-size: large;
+    background: linear-gradient(45deg, #8000ff, #ffcc00);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 100;
+  }
+
+
+  
+  .topButton:hover {
+    transform: scale(1.1);
+  }
+  
+  .topButton:active {
+    transform: scale(0.95);
+  }
+
+  
+  
