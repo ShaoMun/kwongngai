@@ -4,7 +4,7 @@ import styles from '../styles/schedule.module.css';
 const Schedule = () => {
   const schedule = [
     { time: '7.00pm', description: '嘉宾入席' },
-    { time: '7.30pm', description: '凓国歌' },
+    { time: '7.30pm', description: '奏国歌' },
     { time: '7.40pm', description: '鼓艺表演 (马来西亚)' },
     { time: '8.00pm', description: '本会律师顾问-YB林立迎律师致开幕词' },
     { time: '8.20pm', description: '双狮高桩表演 (马来西亚 + 越南)' },
