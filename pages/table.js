@@ -33,7 +33,6 @@ let guestList = [
     "越南光艺", "吉隆坡光艺"
   ];
 
-// Initial seat assignments - you can modify this data directly
 const initialSeatAssignments = {
     "VIP 1" : [],
     "VIP 2" : [],
