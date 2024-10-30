@@ -85,7 +85,7 @@
   margin-top: 0%;
   margin-bottom: 10%;
   max-width: 100%;
-  animation: rotateImage 1.11s linear; /* Rotating animation */
+  animation: rotateImage 1s linear; /* Rotating animation */
 }
 
 @keyframes rotateImage {
