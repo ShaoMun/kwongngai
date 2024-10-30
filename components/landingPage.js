@@ -88,6 +88,17 @@ const LandingPage = () => {
     return result;
   };
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://player.vimeo.com/api/player.js";
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className={styles.landingContainer}>
       {/* Sections 1, 2, and 3 */}
@@ -184,7 +195,6 @@ const LandingPage = () => {
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         title="2 _MASTER_Long version (with super)"
       ></iframe>
-      <script src="https://player.vimeo.com/api/player.js"></script>
     </div>
 
 
@@ -200,7 +210,6 @@ const LandingPage = () => {
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         title="2 _MASTER_Long version (with super)"
       ></iframe>
-      <script src="https://player.vimeo.com/api/player.js"></script>
     </div>
 
       </div>
