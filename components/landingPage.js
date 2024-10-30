@@ -10,6 +10,10 @@ const LandingPage = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
+  const section4Ref = useRef(null);
+  const section5Ref = useRef(null);
+  const section6Ref = useRef(null);
+  const section7Ref = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -19,6 +23,13 @@ const LandingPage = () => {
     { src: "/thumbnail3.jpeg", description: "香港鱷魚恤世界夜光龍醒獅大賽 2018", link: "https://www.youtube.com/watch?v=cjmRPUV_MDE" },
     { src: "/thumbnail4.jpeg", description: "2014年香港世界夜光龙•醒狮锦标赛", link: "https://www.youtube.com/watch?v=d5-sfHjchsg" },
     { src: "/thumbnail5.jpeg", description: "2014年美高梅狮王争霸-澳门国际邀请赛", link: "https://www.youtube.com/watch?v=yU8oR-WM66w" }
+  ];
+
+  const honorees = [
+    "Dato Martin林顺成", "Datuk许振端医生", "Dato 林昇伦", "杨庆权BKT", 
+    "Kevin Tann 陈俊杰先生", "戴钟德先生", "Seventiar A/L Anthony", 
+    "食为天海鲜酒家", "香港邓肇伦师傅", "澳州Willis Koh", "澳洲荣威企业", 
+    "越南老板--", "高安定先生", "Heng Yup Metal S/B", "Chris"
   ];
 
   useEffect(() => {
@@ -34,47 +45,38 @@ const LandingPage = () => {
     );
 
     // Copy ref values to local variables
-    const section1El = section1Ref.current;
-    const section2El = section2Ref.current;
-    const section3El = section3Ref.current;
+    const sectionRefs = [section1Ref, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, section7Ref];
 
-    if (section1El) observer.observe(section1El);
-    if (section2El) observer.observe(section2El);
-    if (section3El) observer.observe(section3El);
+    // Observe each section
+    sectionRefs.forEach(ref => {
+      if (ref.current) observer.observe(ref.current);
+    });
 
     return () => {
-      if (section1El) observer.unobserve(section1El);
-      if (section2El) observer.unobserve(section2El);
-      if (section3El) observer.unobserve(section3El);
+      // Unobserve each section
+      sectionRefs.forEach(ref => {
+        if (ref.current) observer.unobserve(ref.current);
+      });
     };
   }, []);
 
   const handlePrevious = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-
     setActiveSlide((prev) => (prev === 0 ? thumbnails.length - 1 : prev - 1));
-
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const handleNext = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-
     setActiveSlide((prev) => (prev === thumbnails.length - 1 ? 0 : prev + 1));
-
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 500);
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const getVisibleImages = () => {
     const result = [];
     const length = thumbnails.length;
-
     for (let i = -2; i <= 2; i++) {
       let index = (activeSlide + i + length) % length;
       result.push({
@@ -88,44 +90,23 @@ const LandingPage = () => {
 
   return (
     <div className={styles.landingContainer}>
+      {/* Sections 1, 2, and 3 */}
       <div ref={section1Ref} className={`${styles.section1} section`}>
         <AnimatedBackground />
-        <div>
-          <Image
-            src="/KWONGNGAI.png"
-            width={300}
-            height={300}
-            alt="KWONG NGAI Logo"
-          />
-        </div>
-        <div>
-          <h1>
-            马来西亚光藝龍獅體育會<br /><span>二十二週年</span>暨籌募活動基金晚宴
-          </h1>
-        </div>
+        <Image src="/KWONGNGAI.png" width={300} height={300} alt="KWONG NGAI Logo" />
+        <h1>马来西亚光藝龍獅體育會<br /><span>二十二週年</span>暨籌募活動基金晚宴</h1>
       </div>
-
       <div ref={section2Ref} className={`${styles.section2} section`}>
         <AnimatedBackground />
-        <div>
-          <h2>全球伙伴心相连，共同目标向前跃</h2>
-        </div>
+        <h2>全球伙伴心相连，共同目标向前跃</h2>
         <div className={styles.mapContainer}>
-          <Image
-            src="/worldmap.png"
-            width={400}
-            height={300}
-            alt="World Map"
-          />
+          <Image src="/worldmap.png" width={400} height={300} alt="World Map" />
         </div>
-        <div>
-          <p>我们在全球各地广泛结交朋友，
+        <p>我们在全球各地广泛结交朋友，
             致力于弘扬传统文化。目前，在印度尼西亚、新加坡，以及马来西亚的柔佛州都设有分会。
             这些分会不仅为当地社群带来精彩的舞狮表演，还提供培训与交流的机会，让更多人能够了解并传承舞狮艺术。
             通过跨国的分会网络，我们在世界各地推广中华传统文化，团结有志之士，共同朝着弘扬与发扬舞狮艺术的目标前进</p>
-        </div>
       </div>
-
       <div ref={section3Ref} className={`${styles.section3} section`}>
         <AnimatedBackground />
         <div>
@@ -187,6 +168,101 @@ const LandingPage = () => {
           >
             了解更多
           </button>
+        </div>
+      </div>
+
+      {/* Sections 4, 5, 6, and Infinite Slider */}
+      <div ref={section4Ref} className={`${styles.section4} section`}>
+        <AnimatedBackground />
+        <h1>特别鸣谢</h1>
+        <h3>The Grand Ho Tram</h3>
+        <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+      <iframe 
+        src="https://player.vimeo.com/video/1024647507?autoplay=1&muted=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
+        frameBorder="0" 
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        title="2 _MASTER_Long version (with super)"
+      ></iframe>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+
+
+      </div>
+      <div ref={section5Ref} className={`${styles.section5} section`}>
+        <AnimatedBackground />
+        <h3>JNJ Film Production</h3>
+        <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+      <iframe 
+        src="https://player.vimeo.com/video/1024647743?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
+        frameBorder="0" 
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        title="2 _MASTER_Long version (with super)"
+      ></iframe>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+
+      </div>
+      <div ref={section6Ref} className={`${styles.section6} section`}>
+        <AnimatedBackground />
+        <h2>荣誉顾问</h2>
+        <div className={styles.twoColumnContainer}>
+        <div className={styles.column1}>
+      <h3>永久荣誉会长:</h3>
+      <p>罗诘粦先生 & 谢妙莊女士</p>
+      <h3>荣誉会长:</h3>
+      <p>Sevenstiar A/L Antony</p>
+      <h3>荣誉顾问:</h3>
+      <p>拿督林亚财局绅</p>
+      <p>拿督林昇伦</p>
+      <p>戴钟德先生</p>
+      <p>陈俊杰先生</p>
+      <p>高 再送先生</p>
+      <h3>医药顾问:</h3>
+      <p>拿督许振端医生</p>
+      <h3>铁打顾问:</h3>
+      <p>拿督梁润江博士</p>
+    </div>
+    <div className={styles.column2}>   
+      <h3>法律顾问:</h3>
+      <p>YB林立迎律师</p> 
+      <h3>狮艺顾问:</h3>
+      <p>许国雄师傅</p>
+      <h3>海外荣誉会长:</h3>
+      <p>郭木徳先生</p>
+      <h3>海外荣誉顾问:</h3>
+      <p>郑治勇先生</p>
+      <p>程文强先生</p>
+      <h3>海外龙艺顾问:</h3>
+      <p>易荣源师傅</p>
+      <h3>海外狮艺顾问:</h3>
+      <p>邓肇伦师傅</p>
+      <p>覃来长师傅</p>
+      <p>李润福师傅</p>
+      <p>潘敬文师傅</p>
+      <p>罗振光师傅</p>
+    </div>
+        </div>
+      </div>
+      <div ref={section7Ref} className={styles.infiniteSlider}>
+        <h2>鸣锣人</h2>
+        <div className={styles.sliderContent}>
+          {honorees.map((honoree, index) => (
+            <div key={index} className={styles.sliderItem}>{honoree}</div>
+          ))}
+          {honorees.map((honoree, index) => (
+            <div key={index} className={styles.sliderItem}>{honoree}</div>
+          ))}
+          {honorees.map((honoree, index) => (
+            <div key={index} className={styles.sliderItem}>{honoree}</div>
+          ))}
+          {honorees.map((honoree, index) => (
+            <div key={index} className={styles.sliderItem}>{honoree}</div>
+          ))}
+          {honorees.map((honoree, index) => (
+            <div key={index} className={styles.sliderItem}>{honoree}</div>
+          ))}
         </div>
       </div>
     </div>

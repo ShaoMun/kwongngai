@@ -16,9 +16,22 @@
   transition: opacity 0.8s, transform 0.8s; /* Smooth transition */
 }
 
+.section4,
+.section5,
+.section6,
+.infiniteSlider{
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Moves down */
+  transition: opacity 0.8s, transform 0.8s; /* Smooth transition */
+}
+
 .section1.visible,
 .section2.visible,
-.section3.visible {
+.section3.visible,
+.section4.visible,
+.section5.visible,
+.section6.visible,
+.infiniteSlider.visible {
   opacity: 1; /* Fully visible */
   transform: translateY(0); /* Moves to the original position */
 }
@@ -30,7 +43,10 @@
 }
 
 .section2 h2,
-.section3 h2 {
+.section3 h2,
+.section4 h1,
+.section6 h2,
+.infiniteSlider h2 {
   font-size: 21px;
   background: radial-gradient(circle, #8000ff, #ffcc00);
   -webkit-background-clip: text;
@@ -101,7 +117,7 @@
 }
 
 .section3 {
-  height: 80vh;
+  height: 100vh;
   justify-content: start;
   overflow: hidden;
 }
@@ -232,9 +248,99 @@
   }
 }
 
-@media screen and (max-height: 700px){
-  .section3{
-    height: 90vh;
+
+.infiniteSlider {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.sliderContent {
+  display: inline-flex;
+  animation: slide 120s linear infinite;
+}
+
+.sliderItem {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 15px;
+  color: white;
+  margin-right: 15px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+/* Optional: Add some spacing for aesthetics */
+.sliderItem:not(:last-child) {
+  margin-right: 12px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }
 
+.section6 h2,
+.infiniteSlider,
+.section4 h1{
+  text-align: center;
+}
+
+.twoColumnContainer {
+  display: flex;
+  flex-direction: row !important; /* Side-by-side columns */
+  margin-top: 20px;
+}
+
+.column1,
+.column2 {
+  flex: 1; /* Equal width columns */
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Space between items */
+  justify-content: start;
+  margin-left: 30px;
+}
+
+.column1 h3,
+.column2 h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  margin-bottom: 0px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.column1 p,
+.column2 p {
+  font-size: 13px;
+  margin:  0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.section4 h1{
+  font-size: 27px;
+}
+
+.section4,
+.section5{
+  height: 51vh;
+}
+
+.section4 h3,
+.section5 h3{
+  margin: 10px;
+  font-size: 15px;
+}
+
+.section4 iframe,
+.section5 iframe{
+  width: 100%;
+  height: auto;
+}
