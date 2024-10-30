@@ -117,7 +117,7 @@
 }
 
 .section3 {
-  height: 100vh;
+  height: 90vh;
   justify-content: start;
   overflow: hidden;
 }
@@ -333,10 +333,15 @@
   height: 51vh;
 }
 
-.section4 h3,
+.section4 h3{
+  margin: 12px;
+  font-size: 18px;
+  margin-top: 18px;
+}
+
 .section5 h3{
-  margin: 10px;
-  font-size: 15px;
+  margin: 0 12px;
+  font-size: 18px;
 }
 
 .section4 iframe,
