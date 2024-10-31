@@ -14,7 +14,7 @@ const Schedule = () => {
     { time: '9.15pm', description: '颁发荣誉人纪念品' },
     { time: '9.35pm', description: '花式擂鼓表演 (越南)' },
     { time: '9.50pm', description: '夜光龙表演 (柔佛)' },
-    { time: '10.00pm', description: '夜光狮高桩表演 (马来西亚 + 越南)' },
+    { time: '10.00pm', description: '夜光狮高桩表演 (马来西亚)' },
     { time: '10.15pm', description: '颁发纪念品给出席队伍' },
   ];
 
