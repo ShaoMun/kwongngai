@@ -61,7 +61,7 @@ const initialSeatAssignments = {
     "3": ["狮总", "艺峰", "群乐", "南北龙狮总会"],
     "4": ["周国庆先生"],
     "5": ["印尼光艺", "Leon"],
-    "6": ["柔佛光艺", "印尼光艺"],
+    "6": ["柔佛光艺", "越南光艺"],
     "7": ["澳洲振武馆", "新加坡腾勇", "Chris"],
     "8": ["Tuan Lim", "Kevin Tann"],
     "9": ["TargetFashion-Yit Meng ConstructionS/B"],
