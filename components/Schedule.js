@@ -8,7 +8,7 @@ const Schedule = () => {
     { time: '7.40pm', description: '花式擂鼓表演 (马来西亚)' },
     { time: '8.00pm', description: '马来西亚全国龙狮总会会长-拿督林顺成致开幕词' },
     { time: '8.10pm', description: '马来西亚光艺龙狮体育会创办人兼团长-陈其文师傅致词' },
-    { time: '8.20pm', description: '双狮高桩表演 (马来西亚)' },
+    { time: '8.20pm', description: '双狮高桩表演 (马来西亚 + 越南)' },
     {time: '8.40pm',description: '鸣锣仪式' },
     { time: '9.00pm', description: '竞技龙表演 (越南)' },
     { time: '9.15pm', description: '颁发荣誉人纪念品' },

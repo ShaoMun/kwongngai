@@ -29,7 +29,7 @@ const LandingPage = () => {
     "Dato Martin林顺成", "Datuk许振端医生", "Dato 林昇伦", "杨庆权BKT", 
     "Kevin Tann 陈俊杰先生", "戴钟德先生", "Seventiar A/L Anthony", 
     "食为天海鲜酒家", "香港邓肇伦师傅", "澳州Willis Koh", "澳洲荣威企业", 
-    "越南老板--", "高安定先生", "Heng Yup Metal S/B", "Chris"
+    "越南老板", "高安定先生", "Heng Yup Metal S/B", "Chris"
   ];
 
   useEffect(() => {
