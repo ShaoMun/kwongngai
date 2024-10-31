@@ -40,18 +40,23 @@ let guestList = [
 const initialSeatAssignments = {
     "VIP 1": [
       "Dato Martin Lim",
-      "Dato 尤观成",
-      "Dato 林亚财太平局绅",
+      "Willis Koh",
+      "Chris",
       "杨庆权 BKT",
       "萧斐弘师傅",
       "易荣源师傅",
       "锺道仁师傅",
-      "高安定先生"
+      "邓肇伦师傅",
+      "李润福师傅",
+      "Dato Lim Teng Lun"
     ],
     "VIP 2": [
-      "Dato Lim Teng Lun",
       "Dato Koh Chin Tuan",
-      "Rawang Michael"
+      "Dato 林亚财太平局绅",
+      "Rawang Michael",
+      "高安定先生",
+      "越南老板",
+      "Dato尤现成"
     ],
     "3": ["狮总", "艺峰", "群乐", "南北龙狮总会"],
     "4": ["周国庆先生"],
